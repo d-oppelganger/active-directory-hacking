@@ -19,6 +19,17 @@ A imagem abaixo mostra o sucesso do ataque: o DC validou a requisição e retorn
 
 ![Kerberoasting Hash](kerberoasting_proof.png)
 
+## 🔧 Desafios & Troubleshooting
+Durante a configuração, enfrentei e solucionei desafios reais de infraestrutura que impediam o ataque:
+
+1.  **Falha de DNS na Rede Interna:**
+    * **Problema:** O Kali não resolvia o domínio `lab.local` mesmo estando na mesma rede.
+    * **Solução:** Configurei IPs estáticos e apontei manualmente o DNS do Kali (`/etc/resolv.conf`) para o IP do Domain Controller. Também precisei desativar o Firewall do Windows Server para permitir tráfego na porta 53/ICMP.
+
+2.  **Erro de Kerberos (Clock Skew):**
+    * **Problema:** O ataque falhava com o erro `KRB_AP_ERR_SKEW`. Descobri que o protocolo Kerberos exige sincronia de tempo precisa (<5 min).
+    * **Solução:** Forcei a sincronização de horário entre as máquinas virtualizadas via CMD (`time HH:MM:SS`), alinhando os relógios do Windows e Kali para permitir a validação do ticket.
+
 ## 🧠 Aprendizado
 Este lab consolidou meu conhecimento em:
 * Administração de Windows Server e Active Directory.
