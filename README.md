@@ -1,6 +1,6 @@
 # Active Directory Hacking: Kerberoasting Attack 🏢
 
-Este é o laboratório mais complexo do meu portfólio. Simulei uma infraestrutura corporativa completa (Windows Server 2022 + Active Directory) para executar ataques de identidade.
+Neste laboratório foi simulado uma infraestrutura corporativa completa (Windows Server 2022 + Active Directory) para executar ataques de identidade.
 
 O objetivo foi explorar a técnica de **Kerberoasting**: solicitar um ticket de serviço (TGS) para uma conta vulnerável e extrair o hash da senha para quebra offline.
 
